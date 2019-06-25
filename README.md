@@ -1,1 +1,3 @@
-# backend-base-project-Node.js-
+# goBarber
+
+Project BootCamp Rocketseat
