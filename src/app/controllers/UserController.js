@@ -11,12 +11,6 @@ class UserController {
 
     return res.json({ id, name, email, provider });
   }
-
-  async index(req, res) {
-    const user = await User.findAll();
-
-    return res.json(user);
-  }
 }
 
 export default new UserController();
