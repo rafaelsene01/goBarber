@@ -25,7 +25,7 @@ class App {
 
   middlawares() {
     this.server.use(Sentry.Handlers.requestHandler());
-    this.server.user(cors()); // cors({ origin: 'http://rafaelsene.com' })
+    this.server.use(cors()); // cors({ origin: 'http://rafaelsene.com' })
     this.server.use(express.json());
     this.server.use(
       '/files',
