@@ -9,10 +9,10 @@ export function* updateProfile({ payload }) {
   toast.success('Perfil atualizado com sucesso!');
 
   try {
-    const { name, email, ...rest } = payload.data;
+    const { name, email, avatar_id, ...rest } = payload.data;
 
     const profile = Object.assign(
-      { name, email },
+      { name, email, avatar_id },
       rest.oldPassword ? rest : {}
     );
 
