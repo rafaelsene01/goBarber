@@ -6,9 +6,9 @@ import api from '~/services/api';
 import { updateProfileSuccess, updateProfileFailure } from './actions';
 
 export function* updateProfile({ payload }) {
-  toast.success('Perfil atualizado com sucesso!');
-
   try {
+    toast.success('Perfil atualizado com sucesso!');
+
     const { name, email, avatar_id, ...rest } = payload.data;
 
     const profile = Object.assign(
