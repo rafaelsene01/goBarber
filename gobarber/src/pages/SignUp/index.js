@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Image } from 'react-native';
 
 import logo from '~/assets/logo.png';
@@ -15,6 +15,12 @@ import {
 } from './styles';
 
 export default function SignUp({ navigation }) {
+  const nomeRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  function handleSubmit() {}
+
   return (
     <Backgound>
       <Container>
@@ -26,6 +32,8 @@ export default function SignUp({ navigation }) {
             autoCorrect={false}
             autoCapitalize="none"
             placeholder="Nome completo"
+            returnKeyType="next"
+            onSubmitEditing={() => nomeRef.current.focus()}
           />
           <FormInput
             icon="mail-outline"
@@ -33,11 +41,15 @@ export default function SignUp({ navigation }) {
             autoCorrect={false}
             autoCapitalize="none"
             placeholder="Digite seu e-mail"
+            returnKeyType="next"
+            onSubmitEditing={() => emailRef.current.focus()}
           />
           <FormInput
             icon="mail-outline"
             secureTextEntry
             placeholder="Sua senha"
+            returnKeyType="send"
+            onSubmitEditing={handleSubmit}
           />
 
           <SubmitButton onPress={() => {}}>Acessar</SubmitButton>
