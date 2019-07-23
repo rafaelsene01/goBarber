@@ -1,4 +1,4 @@
-import { all, takeLatest, call, put } from 'redux-saga/effects';
+import { all, takeLatest, call, put, delay } from 'redux-saga/effects';
 import { Alert } from 'react-native';
 
 import api from '~/services/api';
@@ -23,6 +23,8 @@ export function* singIn({ payload }) {
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
+    // yield delay(2000);
+
     yield put(signInSuccess(token, user));
 
     // history.push('./dashboard');
@@ -40,7 +42,6 @@ export function* singUp({ payload }) {
       name,
       email,
       password,
-      provider: true,
     });
     Alert.alert('Conta criada!');
     // history.push('/');
