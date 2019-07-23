@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { async } from 'rxjs/internal/scheduler/async';
 import api from '~/services/api';
 
 import Backgound from '~/components/Background';
@@ -21,17 +20,15 @@ export default function Dashboard() {
   }, []);
 
   async function handleCancel(id) {
-    try {
-      const response = await api.delete(`appointments/${id}`);
+    const response = await api.delete(`appointments/${id}`);
 
-      setAppointments(
-        appointments.map(appo =>
-          appo.id === id
-            ? { ...appo, canceled_at: response.data.canceled_at }
-            : appo
-        )
-      );
-    } catch (error) {}
+    setAppointments(
+      appointments.map(appo =>
+        appo.id === id
+          ? { ...appo, canceled_at: response.data.canceled_at }
+          : appo
+      )
+    );
   }
 
   return (
