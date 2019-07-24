@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { formatRelative, parseISO } from 'date-fns';
+import { formatRelative, parseISO, subHours } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 import { TouchableOpacity } from 'react-native';
 
@@ -16,7 +16,8 @@ export default function Confirm({ navigation }) {
   const time = navigation.getParam('time');
 
   const dateFormatted = useMemo(
-    () => formatRelative(parseISO(time), new Date(), { locale: pt }),
+    () =>
+      formatRelative(subHours(parseISO(time), 3), new Date(), { locale: pt }),
     [time]
   );
 
