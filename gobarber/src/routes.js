@@ -40,6 +40,7 @@ export default (isSigned = false) =>
                     headerLeftContainerStyle: {
                       marginLeft: 20,
                     },
+                    headerLayoutPreset: 'center',
                   },
                 }
               ),
